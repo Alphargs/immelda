@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Joyeux Anniversaire Immelda !</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Parisienne&family=Cormorant+Garamond:wght@400;700&display=swap');
+
+        :root {
+            --primary-gold: #DAA520; /* Gold */
+            --secondary-cream: #FFFDD0; /* Cream */
+            --tertiary-maroon: #800000; /* Maroon */
+            --text-dark: #333;
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-dark: rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Letter Styling */
+        .letter {
+            background-color: var(--secondary-cream);
+            padding: 40px;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px var(--shadow-dark);
+            text-align: center;
+            line-height: 1.6;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .letter-content {
+            padding: 10px;
+        }
+
+        .greeting {
+            font-family: 'Parisienne', cursive;
+            font-size: 3em;
+            color: var(--tertiary-maroon);
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .main-message {
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            font-size: 1.2em;
+        }
+
+        .image-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 35px auto;
+            border: 6px solid var(--primary-gold);
+            box-shadow: 0 0 25px var(--shadow-dark);
+            overflow: hidden;
+            aspect-ratio: 3 / 4,5;
+            display: block;
+        }
+
+        .birthday-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .framed-message {
+            border: 4px solid var(--primary-gold);
+            padding: 20px 25px;
+            margin: 40px auto;
+            max-width: 75%;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(218, 165, 32, 0.6);
+            border-radius: 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            color: var(--tertiary-maroon);
+            position: relative;
+            overflow: visible; /* visible to allow fireworks to overflow */
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .framed-message:hover {
+            transform: translateY(-5px);
+        }
+
+        .framed-message p {
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Firework particle style */
+        .firework {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            opacity: 0;
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+            will-change: transform, opacity;
+            transform-origin: center center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .letter {
+                padding: 30px;
+                width: 95%;
+            }
+            .greeting {
+                font-size: 2.5em;
+            }
+            .main-message {
+                font-size: 1.1em;
+            }
+            .framed-message {
+                font-size: 1.8em;
+                padding: 15px 20px;
+                max-width: 85%;
+            }
+            .image-container {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .letter {
+                padding: 20px;
+            }
+            .greeting {
+                font-size: 2em;
+            }
+            .main-message {
+                font-size: 1em;
+            }
+            .framed-message {
+                font-size: 1.4em;
+                padding: 12px 15px;
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="letter">
+        <div class="letter-content">
+            <p class="greeting">happy birthday Immelda,</p>
+            <p class="main-message">Joyeux anniversaire ! Que cette journée soit remplie de joie, d'amour et de moments inoubliables. Tu es une personne merveilleuse "meme si tu est tres souvent immature" et je te souhaitons le meilleur pour tes 18 ans </p>
+
+            <div class="image-container">
+                <img src="WhatsApp Image 2025-06-19 à 22.18.43_8b3c0634.jpg" alt="Immelda" class="birthday-photo" />
+            </div>
+
+            <div class="framed-message" title="Clique pour faire jaillir les feux d'artifice !">
+                <p>Joyeux Anniversaire à toi, Immelda !</p>
+            </div>
+
+            <p class="closing">joyeux 18 ans</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const framedMessage = document.querySelector('.framed-message');
+
+            // SVG paths for hearts and flowers (simple icons)
+            const shapes = {
+                heart: '<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>',
+                flower: '<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm0 5c-2.8 0-5 2.2-5 5 0 1.8 1 3.5 2.6 4.4l-3 4.6 1.7-1 1.6 2.8 1.6-2.8 1.7 1-3-4.6c1.6-.9 2.6-2.6 2.6-4.4 0-2.8-2.2-5-5-5z"/></svg>'
+            };
+
+            // Create an element with SVG content as icon
+            function createSVGElement(svgString, color) {
+                const wrapper = document.createElement('div');
+                wrapper.classList.add('firework');
+                wrapper.style.color = color;
+                wrapper.innerHTML = svgString;
+                // Style SVG to fill container
+                const svg = wrapper.querySelector('svg');
+                svg.style.width = '100%';
+                svg.style.height = '100%';
+                svg.style.display = 'block';
+                svg.style.fill = 'currentColor';
+                return wrapper;
+            }
+
+            function createFirework(event) {
+                const rect = framedMessage.getBoundingClientRect();
+
+                const clickX = event.clientX - rect.left;
+                const clickY = event.clientY - rect.top;
+
+                for (let i = 0; i < 25; i++) {
+                    // Alternate between heart and flower shapes
+                    const shapeType = (i % 2 === 0) ? 'heart' : 'flower';
+
+                    // Random colors in warm pinks and golds
+                    const colors = ['#DAA520', '#FF69B4', '#FF1493', '#FF6347', '#FFD700', '#FF4500'];
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+
+                    const particle = createSVGElement(shapes[shapeType], color);
+                    framedMessage.appendChild(particle);
+
+                    // Random size between 15px and 30px
+                    const size = 15 + Math.random() * 15;
+                    particle.style.width = size + 'px';
+                    particle.style.height = size + 'px';
+
+                    // Position at click point centered
+                    particle.style.left = `${clickX}px`;
+                    particle.style.top = `${clickY}px`;
+                    particle.style.transform = 'translate(-50%, -50%) scale(0)';
+                    particle.style.opacity = '1';
+
+                    // Random explosion direction and distance
+                    const angle = Math.random() * 2 * Math.PI;
+                    const distance = 50 + Math.random() * 100;
+                    const translateX = distance * Math.cos(angle);
+                    const translateY = distance * Math.sin(angle);
+
+                    // Animate with Web Animations API
+                    const animation = particle.animate([
+                        { transform: `translate(-50%, -50%) scale(0.3)`, opacity: 1 },
+                        { transform: `translate(calc(-50% + ${translateX}px), calc(-50% + ${translateY}px)) scale(1)`, opacity: 0 }
+                    ], {
+                        duration: 1000 + Math.random() * 500,
+                        easing: 'ease-out',
+                        fill: 'forwards'
+                    });
+
+                    animation.onfinish = () => {
+                        particle.remove();
+                    };
+                }
+            }
+
+            if (framedMessage) {
+                framedMessage.addEventListener('click', createFirework);
+            }
+        });
+    </script>
+</body>
+</html>
